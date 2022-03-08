@@ -1,0 +1,36 @@
+{namespace p=FKU\FkuPeople\ViewHelpers}
+
+<f:layout name="Default" />
+<f:section name="main">
+
+<h2>Geburtstage im <f:format.date date="{month}" format="%B %Y" /></h2>
+
+<f:flashMessages as="flashMessages">
+	<f:render partial="Alert" arguments="{flashMessages:flashMessages}" />
+</f:flashMessages>
+
+<f:if condition="{dates->f:count()}==0">
+	<f:then>
+    	<p>Keine Geburtstage</p>
+    </f:then>
+    <f:else>
+    	<table class="table">
+            <f:for each="{dates}" as="day" iteration="it">
+                <f:for each="{day.birthdays}" as="person">
+                    <tr>
+                    	<td width="15%">{day.text}</td>
+                        <td width="60%">
+                        	<b>{person.firstname} {person.lastname}</b><br />
+	                        {person.address} {person.housenumber}, 
+    	                    <f:if condition="{person.addressadd}">{person.addressadd}, </f:if>
+        	                {person.zipcode} {person.city}
+                        </td>
+                        <td width="25%"><p:age birthdate="{person.dateofbirth}" date="{day.timestamp}" /></td>
+                    </tr>
+                </f:for>            
+            </f:for>
+        </table>
+	</f:else>
+</f:if>
+
+</f:section>

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-07-18T13:40:36Z" product-name="fku_people">
+		<header/>
+		<body>
+			<trans-unit id="tx_fkupeople_domain_model_person">
+				<source>Person</source>
+			</trans-unit>
+			<trans-unit id="tx_fkupeople_domain_model_person.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_fkupeople_domain_model_person.firstname">
+				<source>Firstname</source>
+			</trans-unit>
+			<trans-unit id="tx_fkupeople_domain_model_person.lastname">
+				<source>Lastname</source>
+			</trans-unit>
+			<trans-unit id="tx_fkupeople_domain_model_person.address">
+				<source>Address</source>
+			</trans-unit>
+			<trans-unit id="tx_fkupeople_domain_model_person.housenumber">
+				<source>Housenumber</source>
+			</trans-unit>
+			<trans-unit id="tx_fkupeople_domain_model_person.addressadd">
+				<source>Addressadd</source>
+			</trans-unit>
+			<trans-unit id="tx_fkupeople_domain_model_person.zipcode">
+				<source>Zipcode</source>
+			</trans-unit>
+			<trans-unit id="tx_fkupeople_domain_model_person.city">
+				<source>City</source>
+			</trans-unit>
+			<trans-unit id="tx_fkupeople_domain_model_person.phone">
+				<source>Phone</source>
+			</trans-unit>
+			<trans-unit id="tx_fkupeople_domain_model_person.mobile">
+				<source>Mobile</source>
+			</trans-unit>
+			<trans-unit id="tx_fkupeople_domain_model_person.email">
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="tx_fkupeople_domain_model_person.dateofbirth">
+				<source>Dateofbirth</source>
+			</trans-unit>
+			<trans-unit id="tx_fkupeople_domain_model_person.memberstatus">
+				<source>Memberstatus</source>
+			</trans-unit>
+			<trans-unit id="tx_fkupeople_domain_model_person.child">
+				<source>Child</source>
+			</trans-unit>
+			<trans-unit id="tx_fkupeople_domain_model_person.duty">
+				<source>Duty</source>
+			</trans-unit>
+
+			<trans-unit id="tx_fkupeople_domain_model_birthday">
+				<source>Birtdays</source>
+			</trans-unit>
+			<trans-unit id="tx_fkupeople_domain_model_ birthday.nachname">
+				<source>Last name</source>
+			</trans-unit>
+			<trans-unit id="tx_fkupeoplea_domain_model_ birthday.vorname">
+				<source>First name</source>
+			</trans-unit>
+			<trans-unit id="tx_fkupeople_domain_model_ birthday.geburtsdatum">
+				<source>Birthday</source>
+			</trans-unit>
+			<trans-unit id="tx_fkupeople_domain_model_ birthday.mitglied">
+				<source>Member</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_fkupeople_domain_model_team">
+				<source>Team</source>
+			</trans-unit>
+			<trans-unit id="tx_fkupeople_domain_model_team.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_fkupeople_domain_model_subteam">
+				<source>Subteam</source>
+			</trans-unit>
+			<trans-unit id="tx_fkupeople_domain_model_subteam.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_fkupeople_domain_model_subteam.team">
+				<source>Team</source>
+			</trans-unit>
+			<trans-unit id="tx_fkupeople_domain_model_extern">
+				<source>Extern</source>
+			</trans-unit>
+			<trans-unit id="tx_fkupeople_domain_model_extern.firstname">
+				<source>Firstname</source>
+			</trans-unit>
+			<trans-unit id="tx_fkupeople_domain_model_extern.lastname">
+				<source>Lastname</source>
+			</trans-unit>
+			<trans-unit id="tx_fkupeople_domain_model_extern.phone">
+				<source>Phone</source>
+			</trans-unit>
+			<trans-unit id="tx_fkupeople_domain_model_extern.mobile">
+				<source>Mobile</source>
+			</trans-unit>
+			<trans-unit id="tx_fkupeople_domain_model_extern.email">
+				<source>Email</source>
+			</trans-unit>
+
+			<trans-unit id="tx_fkupeople_domain_model_notification">
+				<source>Notifcation</source>
+			</trans-unit>
+			<trans-unit id="tx_fkupeople_domain_model_notification.rule">
+				<source>Notifcation rule</source>
+			</trans-unit>
+			<trans-unit id="tx_fkupeople_domain_model_notification.days">
+				<source>Number of days in advance</source>
+			</trans-unit>
+			<trans-unit id="tx_fkupeople_domain_model_notification.user">
+				<source>Frontend user</source>
+			</trans-unit>
+			<trans-unit id="tx_fkupeople_domain_model_notification.timing">
+				<source>Timing</source>
+			</trans-unit>
+
+			<trans-unit id="tx_fkupeople_domain_model_notificationrule">
+				<source>Notification rule</source>
+			</trans-unit>
+			<trans-unit id="tx_fkupeople_domain_model_notificationrule.extension">
+				<source>Extension name</source>
+			</trans-unit>
+			<trans-unit id="tx_fkupeople_domain_model_notificationrule.nid">
+				<source>Notification ID (per extension)</source>
+			</trans-unit>
+			<trans-unit id="tx_fkupeople_domain_model_notificationrule.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_fkupeople_domain_model_notificationrule.message">
+				<source>E-mail message</source>
+			</trans-unit>
+			<trans-unit id="tx_fkupeople_domain_model_notificationrule.timing_now">
+				<source>Immediate mailing</source>
+			</trans-unit>
+			<trans-unit id="tx_fkupeople_domain_model_notificationrule.timing_day">
+				<source>Daily mailing</source>
+			</trans-unit>
+			<trans-unit id="tx_fkupeople_domain_model_notificationrule.timing_week">
+				<source>Weekly mainling</source>
+			</trans-unit>
+			<trans-unit id="tx_fkupeople_domain_model_notificationrule.usergroup">
+				<source>Allowed usergroups</source>
+			</trans-unit>
+			<trans-unit id="tx_fkupeople_domain_model_notificationrule.category">
+				<source>Category</source>
+			</trans-unit>
+			<trans-unit id="palette.extension">
+				<source></source>
+			</trans-unit>
+			<trans-unit id="palette.timing">
+				<source>Applicable types of sending notification</source>
+			</trans-unit>
+
+			<trans-unit id="fe_users.tabs.fkudb">
+				<source>FKU Database</source>
+			</trans-unit>
+			<trans-unit id="fe_users.tx_fkupeople_fkudbid">
+				<source>FKU Database Person ID</source>
+			</trans-unit>
+			<trans-unit id="fe_users.tx_fkupeople_fkudbsync">
+				<source>Last Synchronization</source>
+			</trans-unit>
+			<trans-unit id="fe_users.tx_fkupeople_planningcal">
+				<source>Planning Calender Name</source>
+			</trans-unit>
+			<trans-unit id="fe_users.tx_fkupeople_planning_alarm">
+				<source>Planning Calender Alarm Interval (days)</source>
+			</trans-unit>
+			<trans-unit id="fe_users.tx_fkupeople_notification_hour">
+				<source>Notification: Sending hour</source>
+			</trans-unit>
+			<trans-unit id="fe_users.tx_fkupeople_notification_weekday">
+				<source>Notification: Sending weekday</source>
+			</trans-unit>
+			<trans-unit id="fe_users.tx_fkupeople_notification_weekdayhour">
+				<source>Notification: Sending weekday hour</source>
+			</trans-unit>
+			<trans-unit id="fe_users.tx_fkupeople_notification_cacheday">
+				<source>Notification: Cache daily mail</source>
+			</trans-unit>
+			<trans-unit id="fe_users.tx_fkupeople_notification_cacheweek">
+				<source>Notification: Cache weekly mail</source>
+			</trans-unit>
+			
+		</body>
+	</file>
+</xliff>

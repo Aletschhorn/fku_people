@@ -1,0 +1,22 @@
+
+<f:layout name="Default" />
+
+<f:section name="main">
+
+<f:flashMessages as="flashMessages">
+	<f:render partial="Alert" arguments="{flashMessages:flashMessages}" />
+</f:flashMessages>
+
+<f:if condition="{person}">
+	<f:then>
+		<f:render partial="Person/PropertiesList" arguments="{person:person}" />
+	</f:then>
+	<f:else>
+		<div class="alert alert-info">
+        	<svg class="icon-md" width="32" height="32" fill="currentColor"><use xlink:href="fileadmin/icon/glyphicons-basic-636-circle-info.svg#glyphicons-basic"/></svg>
+            Keine Personendaten gefunden
+        </div>
+	</f:else>
+</f:if>
+
+</f:section>

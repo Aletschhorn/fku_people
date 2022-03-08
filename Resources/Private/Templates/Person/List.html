@@ -1,0 +1,196 @@
+<f:layout name="Default" />
+
+<f:section name="main">
+
+<f:flashMessages as="flashMessages">
+	<f:render partial="Alert" arguments="{flashMessages:flashMessages}" />
+</f:flashMessages>
+
+<h3>Suchkriterien</h3>
+
+<f:form name="filter" action="list">
+	<f:form.hidden name="sent" value="1" />
+	<div class="row">
+		<div class="col-md-6 col-12">
+            <div class="row form-group">
+                <label for="lastname" class="col-md-3 col-form-label">Name</label>
+                <div class="col-md-8">
+                    <f:form.textfield name="name" id="name" value="{filter.name}" class="form-control" />
+                    <f:widget.autocomplete for="name" objects="{allPeople}" searchProperty="name" />
+                    <script type="text/javascript">
+                        jQuery(function() {
+                            jQuery("#name").autocomplete({
+                                select:function(event, ui) {
+                                    this.form.name.value = ui.item.value;
+                                    this.form.submit();
+                                }
+                            });
+                        });
+                    </script>
+                </div>
+            </div>
+            <div class="row form-group">
+                <label for="team" class="col-md-3 col-form-label">Gruppe</label>
+                <div class="col-md-8">
+                    <f:form.select name="team" value="{filter.team}" class="form-control" options="{teams}" optionLabelField="title" optionValueField="uid" prependOptionLabel=" " />
+                </div>
+            </div>
+            <f:form.submit value="Suchen" class="btn btn-primary" />
+		</div>
+
+		<f:security.ifHasRole role="Vorstand">
+			<f:form.hidden name="showall" value="1" />
+			<div class="col-md-6 col-12">
+				<p >Zusätzliche Kriterien für Vorstand- und GL-Mitglieder:</p>
+                <div class="row form-group">
+	                <legend class="col-form-label col-sm-3 float-sm-left pt-0">Status</legend>
+                    <div class="col-sm-9">
+                        <div class="form-check form-check-inline">
+                        	<f:form.checkbox name="status_member" checked="{filter.status_member}==1" value="1" class="form-check-input" />
+                            <label class="form-check-label" for="status_member">Mitglied</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                        	<f:form.checkbox name="status_friend" checked="{filter.status_friend}==1" value="1" class="form-check-input" />
+                            <label class="form-check-label" for="status_friend">Freundeskreis</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                        	<f:form.checkbox name="status_none" checked="{filter.status_none}==1" value="1" class="form-check-input" />
+                            <label class="form-check-label" for="status_none">Keiner</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row form-group">
+	                <legend class="col-form-label col-sm-3 float-sm-left pt-0">Listenart</legend>
+                    <div class="col-sm-9">
+                        <div class="form-check form-check-inline">
+                        	<f:form.radio name="listtype" id="listtype1" checked="{filter.listtype}==1" value="1" class="form-check-input" />
+                            <label class="form-check-label" for="listtype1">Kontaktliste</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                        	<f:form.radio name="listtype" id="listtype2" checked="{filter.listtype}==2" value="2" class="form-check-input" />
+                            <label class="form-check-label" for="listtype2">Adressliste</label>
+                        </div>
+                    </div>
+                </div>
+			</div>
+		</f:security.ifHasRole>
+	</div>
+</f:form>
+<br /><br />
+
+<f:if condition="{sent}">
+	<h3>Suchresultat: <f:if condition="{persons->f:count()}==1"><f:then>1 Person</f:then><f:else>{persons->f:count()} Personen</f:else></f:if></h3>
+	
+	<f:if condition="{persons}">
+		<f:then>
+			<f:if condition="{filter.listtype}==2">
+				<f:then>
+					<table class="table table-sm">
+						<tr>
+							<th>Name, Adresse</th>
+							<th>Geburtstag</th>
+							<th>Kontakt</th>
+							<th>Status</th>
+							<th>Gruppe</th>
+						</tr>
+					
+						<f:for each="{persons}" as="person">
+							<tr>
+								<td>
+									{person.firstname} {person.lastname}<br />
+									{person.address} {person.housenumber}<br />
+									<f:if condition="{person.addressadd}">{person.addressadd}<br /></f:if>
+									{person.zipcode} {person.city}
+								</td>
+								<td>
+									<f:if condition="{person.dateofbirth}">
+										{person.geburtstag->f:format.date(format:'d.m.Y')}<br />
+										Alter: {person.age} Jahre
+									</f:if>
+								</td>
+								<td>
+									<f:if condition="{person.phone}">{person.phone}<br /></f:if>
+									<f:if condition="{person.mobile}">{person.mobile}<br /></f:if>
+									<f:if condition="{person.email}"><f:link.email email="{person.email}">{person.email}</f:link.email></f:if>
+								</td>
+								<td>
+									<f:if condition="{person.memberstatus}==2">Mitglied<br /></f:if>
+									<f:if condition="{person.memberstatus}==1">Freundeskreis<br /></f:if>
+									<f:if condition="{person.child}==1">(Kind)<br /></f:if>
+									ID {person.uid}
+								</td>
+								<td>
+									<f:for each="{person.duty}" as="duty">
+										<f:if condition="{duty.team.title}">
+											{duty.team.title}<br />
+										</f:if>
+									</f:for>
+								</td>
+							</tr>
+						</f:for>
+					</table>
+				</f:then>
+				<f:else>
+					<table class="table table-sm">
+						<tr>
+							<th>Name</th>
+							<th>Telefon</th>
+							<th>E-Mail</th>
+							<th>Gruppe</th>
+						</tr>
+					
+						<f:for each="{persons}" as="person">
+							<tr>
+								<td>
+									{person.firstname} {person.lastname}
+								</td>
+								<td>
+									<f:if condition="{person.phone}">{person.phone}<br /></f:if>
+									<f:if condition="{person.mobile}">{person.mobile}<br /></f:if>
+								</td>
+								<td>
+									<f:if condition="{person.email}"><f:link.email email="{person.email}">{person.email}</f:link.email></f:if>
+								</td>
+								<td>
+									<f:for each="{person.duty}" as="duty">
+										<f:if condition="{duty.team.title}">
+											{duty.team.title}<br />
+										</f:if>
+									</f:for>
+								</td>
+							</tr>
+						</f:for>
+					</table>
+				</f:else>
+			</f:if>
+		</f:then>
+		<f:else>
+			<f:if condition="{error}==1">
+				<div class="alert alert-warning">
+                	<svg class="icon-md" width="32" height="32" fill="currentColor"><use xlink:href="fileadmin/icon/glyphicons-basic-637-circle-alert.svg#glyphicons-basic"/></svg>
+                    Mindestens ein Typ (Erwachsene oder Kinder) muss ausgewählt sein.
+                </div>
+			</f:if>
+			<f:if condition="{error}==2">
+				<div class="alert alert-warning">
+                	<svg class="icon-md" width="32" height="32" fill="currentColor"><use xlink:href="fileadmin/icon/glyphicons-basic-637-circle-alert.svg#glyphicons-basic"/></svg>
+                    Mindestens ein Status (Mitglied, Freundeskreis, keiner) muss ausgewählt sein.
+                </div>
+			</f:if>
+			<f:if condition="{error}==3">
+				<div class="alert alert-warning">
+                	<svg class="icon-md" width="32" height="32" fill="currentColor"><use xlink:href="fileadmin/icon/glyphicons-basic-637-circle-alert.svg#glyphicons-basic"/></svg>
+                    Mindestens eines der Felder muss einen Suchbegriff enthalten.
+                </div>
+			</f:if>
+			<f:if condition="{error}==0">
+				<div class="alert alert-info">
+                	<svg class="icon-md" width="32" height="32" fill="currentColor"><use xlink:href="fileadmin/icon/glyphicons-basic-636-circle-info.svg#glyphicons-basic"/></svg>
+                    Keine passenden Datensätze gefunden.
+                </div>
+			</f:if>
+		</f:else>
+	</f:if>
+
+</f:if>
+</f:section>

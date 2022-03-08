@@ -1,0 +1,57 @@
+{namespace p=FKU\FkuPeople\ViewHelpers}
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+
+<f:if condition="{notificationRules}">
+	<h2>Neue Benachrichtigungsregel erstellen</h2>
+	<p>Kategorien: 
+		<span class="badge badge-primary" id="filterAll" style="cursor:pointer">Alle</span>
+		<f:for each="{categories}" as="filter" iteration="it">
+			<span class="badge badge-secondary" id="filter{it.index}" style="cursor:pointer">{filter.title}</span>
+		</f:for>
+	</p>
+	
+	<p>Ein E-Mail an mich senden, wenn ...</p>
+	<div class="list-group list-group-flush">
+		<f:for each="{notificationRules}" as="rule">
+			<f:link.action action="addNotification" arguments="{rule:rule.uid}" class="list-group-item d-block" id="rule{rule.uid}">
+				<f:format.printf arguments="{0:'x Tagen'}">{rule.title}</f:format.printf>
+				<f:for each="{rule.category}" as="cat">
+					<span class="badge badge-secondary">{cat.title}</span>
+				</f:for>
+			</f:link.action>
+		</f:for>
+	</div>
+</f:if>
+
+<script type="text/javascript">
+	function labelReset() {
+		document.getElementById('filterAll').className = 'badge badge-secondary';
+		<f:for each="{categories}" as="filter" iteration="it">
+			document.getElementById('filter{it.index}').className = 'badge badge-secondary';
+		</f:for>
+	}
+	$('#filterAll').on('click',function() {
+		<f:for each="{notificationRules}" as="rule">
+			document.getElementById('rule{rule.uid}').className = 'list-group-item d-block';
+			labelReset();
+			document.getElementById('filterAll').className = 'badge badge-primary';
+		</f:for>		
+	});
+	<f:for each="{categories}" as="filter" iteration="it">
+		$('#filter{it.index}').on('click',function() {
+			<f:for each="{notificationRules}" as="rule">
+				<v:condition.iterator.contains needle="{filter.uid}" haystack="{rule.category}">
+					<f:then>
+						document.getElementById('rule{rule.uid}').className = 'list-group-item d-block';
+					</f:then>
+					<f:else>
+						document.getElementById('rule{rule.uid}').className = 'list-group-item d-none';
+					</f:else>
+				</v:condition.iterator.contains>
+			</f:for>
+			labelReset();
+			document.getElementById('filter{it.index}').className = 'badge badge-primary';
+		});
+		
+	</f:for>
+</script>

@@ -1,0 +1,58 @@
+<table class="table" >
+	<tr>
+		<td>Vorname</td>
+		<td>{person.firstname}</td>
+	</tr>
+	<tr>
+		<td>Nachname</td>
+		<td>{person.lastname}</td>
+	</tr>
+	<tr>
+		<td>Adresse</td>
+		<td>{person.address} {person.housenumber}</td>
+	</tr>
+	<tr>
+		<td>Adresszusatz</td>
+		<td>{person.addressadd}</td>
+	</tr>
+	<tr>
+		<td>Wohnort</td>
+		<td>{person.zipcode} {person.city}</td>
+	</tr>
+	<tr>
+		<td>Telefon</td>
+		<td>{person.phone}</td>
+	</tr>
+	<tr>
+		<td>Mobile</td>
+		<td>{person.mobile}</td>
+	</tr>
+	<tr>
+		<td>E-Mail</td>
+		<td>{person.email}</td>
+	</tr>
+	<tr>
+		<td>Geburtsdatum</td>
+		<td><f:format.date date="{person.dateofbirth}" format="d.m.Y" /> ({person.age} Jahre)</td>
+	</tr>
+	<tr>
+		<td>Mitgliederart</td>
+		<td>
+			<f:if condition="{person.memberstatus}==2">Mitglied</f:if>
+			<f:if condition="{person.memberstatus}==1">Freundeskreis</f:if>
+			<f:if condition="{person.child}==1">(Kind)</f:if>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Dienstgruppen
+		</td>
+		<td>
+			<f:for each="{person.duty}" as="duty">
+				<f:if condition="{duty.title}">
+					{duty.title}<br />
+				</f:if>
+			</f:for>
+		</td>
+	</tr>
+</table>

@@ -1,0 +1,58 @@
+<div class="row">
+	<div class="col-4"><b>Vorname</b></div>
+	<div class="col-8">{person.firstname}</div>
+</div>
+<div class="row">
+	<div class="col-4"><b>Nachname</b></div>
+	<div class="col-8">{person.lastname}</div>
+</div>
+<div class="row">
+	<div class="col-4"><b>Adresse</b></div>
+	<div class="col-8">{person.address} {person.housenumber}</div>
+</div>
+<div class="row">
+	<div class="col-4"><b>Adresszusatz</b></div>
+	<div class="col-8">{person.addressadd}</div>
+</div>
+<div class="row">
+	<div class="col-4"><b>Wohnort</b></div>
+	<div class="col-8">{person.zipcode} {person.city}</div>
+</div>
+<div class="row">
+	<div class="col-4"><b>Telefon</b></div>
+	<div class="col-8">{person.phone}</div>
+</div>
+<div class="row">
+	<div class="col-4"><b>Mobile</b></div>
+	<div class="col-8">{person.mobile}</div>
+</div>
+<div class="row">
+	<div class="col-4"><b>E-Mail</b></div>
+	<div class="col-8">{person.email}</div>
+</div>
+<div class="row">
+	<div class="col-4"><b>Geburtsdatum</b></div>
+	<div class="col-8">
+        <f:if condition="{person.dateofbirth}">
+	    	<f:format.date date="{person.dateofbirth}" format="d.m.Y" /> ({person.age} Jahre)
+        </f:if>
+	</div>
+</div>
+<div class="row">
+	<div class="col-4"><b>Mitgliederart</b></div>
+	<div class="col-8">
+		<f:if condition="{person.memberstatus}==2">Mitglied</f:if>
+		<f:if condition="{person.memberstatus}==1">Freundeskreis</f:if>
+		<f:if condition="{person.child}==1">(Kind)</f:if>
+	</div>
+</div>
+<div class="row">
+	<div class="col-4"><b>Dienstgruppen</b></div>
+	<div class="col-8">
+		<f:for each="{person.duty}" as="duty">
+			<f:if condition="{duty.title}">
+				{duty.title}<br />
+			</f:if>
+		</f:for>
+	</div>
+</div>

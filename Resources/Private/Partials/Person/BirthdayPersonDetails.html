@@ -1,0 +1,32 @@
+{namespace p=FKU\FkuPeople\ViewHelpers}
+
+<div class="row">
+    <div class="col-md-4">
+        <b>{person.firstname} {person.lastname}</b><br />
+        <p:age birthdate="{person.dateofbirth}" date="{day}" /> (Jahrgang: {person.geburtstag->f:format.date(format:'Y')})<br />
+        <f:if condition="{person.memberstatus}==2">
+            <f:then>Mitglied</f:then>
+            <f:else>
+                <f:if condition="{person.memberstatus}==1">
+                    <f:then>Freundeskreis</f:then>
+                    <f:else>
+                        <f:if condition="{person.child}==1">
+                            <f:then>Kind</f:then>
+                            <f:else>&nbsp;</f:else>
+                        </f:if>
+                    </f:else>
+                </f:if>
+            </f:else>
+        </f:if>
+    </div>
+    <div class="col-md-8">
+        {person.address} {person.housenumber}, 
+        <f:if condition="{person.addressadd}">{person.addressadd}, </f:if>
+        {person.zipcode} {person.city}
+        <br />
+        <f:if condition="{person.phone}">{person.phone} &nbsp; </f:if>
+        <f:if condition="{person.mobile}">{person.mobile}</f:if>
+        <br />
+        <f:if condition="{person.email}"><f:link.email email="{person.email}">{person.email}</f:link.email></f:if>
+    </div>
+</div>

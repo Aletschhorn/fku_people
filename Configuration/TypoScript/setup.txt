@@ -1,0 +1,19 @@
+
+plugin.tx_fkupeople {
+	view {
+		templateRootPaths.0 = {$plugin.tx_fkupeople.view.templateRootPath}
+		partialRootPaths.0 = {$plugin.tx_fkupeople.view.partialRootPath}
+		layoutRootPaths.0 = {$plugin.tx_fkupeople.view.layoutRootPath}
+	}
+	persistence {
+		storagePid = {$plugin.tx_fkupeople.persistence.storagePid}
+	}
+	settings {
+		notificationBlocker = {$plugin.tx_fkupeople.settings.notificationBlocker}
+		numberOfBirthdates = {$plugin.tx_fkupeople.settings.numberOfBirthdates}
+		passwordCharacters = {$plugin.tx_fkupeople.settings.passwordCharacters}
+		PidSearch = {$plugin.tx_fkupeople.settings.PidSearch}
+	}
+}
+
+module.tx_fkupeople.persistence.storagePid = {$plugin.tx_fkupeople.persistence.storagePid}

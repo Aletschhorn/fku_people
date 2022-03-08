@@ -1,0 +1,65 @@
+<f:layout name="Default" />
+
+<f:section name="main">
+
+<f:flashMessages as="flashMessages">
+	<f:render partial="Alert" arguments="{flashMessages:flashMessages}" />
+</f:flashMessages>
+
+<h3>
+	<f:for each="{teams}" as="team" iteration="it">
+		{team.title}<f:if condition="{it.isLast}==0">, </f:if>
+	</f:for>
+</h3>
+
+<f:if condition="{persons}">
+	<f:then>
+		<table class="table">
+			<f:for each="{persons}" as="person">
+				<tr>
+					<f:for each="{display}" as="displayItem">
+						<f:render section="{displayItem}" arguments="{person:person}" />
+					</f:for>
+				</tr>
+			</f:for>
+		</table>
+	</f:then>
+	<f:else>
+		<p>Keine Personen dieses Teams gefunden.</p>
+	</f:else>
+</f:if>
+
+</f:section>
+
+<f:section name="name">
+	<td width="25%">{person.name}</td>
+</f:section>
+
+<f:section name="address">
+	<td width="25%">
+		{person.address} {person.housenumber}<br />
+		<f:if condition="{person.addressadd}">{person.addressadd}<br /></f:if>
+		{person.zipcode} {person.city}
+	</td>
+</f:section>
+
+<f:section name="phone">
+	<td width="25%">
+		<f:if condition="{person.phone}">{person.phone}<f:if condition="{person.mobile}"><br /></f:if></f:if>
+		<f:if condition="{person.mobile}">{person.mobile}</f:if>
+	</td>
+</f:section>
+
+<f:section name="mail">
+	<td width="5%">
+    	<f:if condition="{person.email}">
+        	<f:link.email email="{person.email}">
+	        	<svg class="icon-md" width="32" height="32" fill="currentColor"><use xlink:href="fileadmin/icon/glyphicons-basic-11-envelope.svg#glyphicons-basic"/></svg>
+            </f:link.email>
+        </f:if>
+    </td>
+</f:section>
+
+<f:section name="birthday">
+	<td width="25%">{person.geburtstag->f:format.date(format:'d.m.Y')} ({person.age} J.)</td>
+</f:section>

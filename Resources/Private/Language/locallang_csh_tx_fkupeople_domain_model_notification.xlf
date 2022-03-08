@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-07-18T13:40:36Z" product-name="fku_people">
+		<header/>
+		<body>
+			<trans-unit id="rule.description">
+				<source>rule</source>
+			</trans-unit>
+			<trans-unit id="days.description">
+				<source>days</source>
+			</trans-unit>
+			<trans-unit id="user.description">
+				<source>user</source>
+			</trans-unit>
+			<trans-unit id="timing.description">
+				<source>timing</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

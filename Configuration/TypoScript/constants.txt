@@ -1,0 +1,25 @@
+
+plugin.tx_fkupeople {
+	view {
+		# cat=plugin.tx_fkupeople/file; type=string; label=Path to template root (FE)
+		templateRootPath = EXT:fku_people/Resources/Private/Templates/
+		# cat=plugin.tx_fkupeople/file; type=string; label=Path to template partials (FE)
+		partialRootPath = EXT:fku_people/Resources/Private/Partials/
+		# cat=plugin.tx_fkupeople/file; type=string; label=Path to template layouts (FE)
+		layoutRootPath = EXT:fku_people/Resources/Private/Layouts/
+	}
+	persistence {
+		# cat=plugin.tx_fkupeople//a; type=string; label=Default storage PID
+		storagePid =
+	}
+	settings {
+		# cat=plugin.tx_fkupeople/others/a; type=boolean; label=Avoid sending notification e-mails (incl. birthday notifications)
+		notificationBlocker = 0
+		# cat=plugin.tx_fkupeople/others/b; type=int+; label=Number of birthdates (starting from recent day)
+		numberOfBirthdates = 5
+		# cat=plugin.tx_fkupeople/others/c; type=string; label=Characters for password generation
+		passwordCharacters = ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890,.;:-_+%&/()?!$
+		# cat=plugin.tx_fkupeople/others/n; type=int+; label=PID of people search form
+		PidSearch = 
+	}
+}

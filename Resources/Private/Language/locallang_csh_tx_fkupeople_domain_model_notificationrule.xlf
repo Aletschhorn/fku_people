@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-07-18T13:40:36Z" product-name="fku_people">
+		<header/>
+		<body>
+			<trans-unit id="extension.description">
+				<source>extension</source>
+			</trans-unit>
+			<trans-unit id="nid.description">
+				<source>nid</source>
+			</trans-unit>
+			<trans-unit id="title.description">
+				<source>title</source>
+			</trans-unit>
+			<trans-unit id="message.description">
+				<source>message</source>
+			</trans-unit>
+			<trans-unit id="timing_now.description">
+				<source>timingNow</source>
+			</trans-unit>
+			<trans-unit id="timing_day.description">
+				<source>timingDay</source>
+			</trans-unit>
+			<trans-unit id="timing_week.description">
+				<source>timingWeek</source>
+			</trans-unit>
+			<trans-unit id="usergroup.description">
+				<source>usergroup</source>
+			</trans-unit>
+			<trans-unit id="category.description">
+				<source>category</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

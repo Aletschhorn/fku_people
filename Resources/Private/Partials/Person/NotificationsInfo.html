@@ -1,0 +1,8 @@
+<f:if condition="{person.email}">
+	<f:then>
+		<p>Ihre Benachrichtigungs-Mails werden an <b>{person.email}</b> gesendet. Wenden Sie sich bitte an <f:link.email email="merita.goeldi@fku.ch">Merita Göldi</f:link.email>, um die Adresse zu ändern.</p>
+	</f:then>
+	<f:else>
+		<p>Für Sie ist keine Mail-Adresse hinterlegt. Wenden Sie sich bitte an <f:link.email email="merita.goeldi@fku.ch">Merita Göldi</f:link.email>, um dies zu ändern.</p>
+	</f:else>
+</f:if>

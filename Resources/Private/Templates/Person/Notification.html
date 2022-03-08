@@ -1,0 +1,12 @@
+<f:layout name="Default" />
+
+<f:section name="main">
+<f:render partial="Person/NotificationsInfo" arguments="{_all}" />
+
+<f:flashMessages as="flashMessages">
+	<f:render partial="Alert" arguments="{flashMessages:flashMessages}" />
+</f:flashMessages>
+
+<f:render partial="Person/NotificationsExisting" arguments="{_all}" />
+<f:render partial="Person/NotificationsNew" arguments="{_all}" />
+</f:section>

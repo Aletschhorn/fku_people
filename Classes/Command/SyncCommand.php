@@ -21,6 +21,7 @@ class SyncCommand extends Command {
         $this->setDescription('Synchronizing data from FKU database with fe_users');
         $this->setHelp('Takes information from FKU address database person table(s) and feeds it into TYPO3\'s fe_users table.');
 		$this->addArgument('feuser_ids',InputArgument::OPTIONAL,'Optional. Comma-separated list of Typo3 FE user IDs to be synchronized; empty = all');
+		$this->addArgument('log_email',InputArgument::OPTIONAL,'Optional. E-mail address to send log file');
     }
 
     /**
@@ -76,7 +77,10 @@ class SyncCommand extends Command {
 		$persistenceManager = GeneralUtility::makeInstance(PersistenceManager::class);
 		$persistenceManager->persistAll();
 
-		# mail('daniel.widmer@fku.ch','Log User Sync',$log);
+		$address = trim($input->getArgument('log_email'));
+		if (GeneralUtility::validEmail($address)) {
+			mail($address,'Log User Sync',$log);
+		}
 		return Command::SUCCESS;
 	}
 	

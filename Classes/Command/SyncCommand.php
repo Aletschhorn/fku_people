@@ -101,7 +101,7 @@ class SyncCommand extends Command {
 				$FEuser->setFax($FKUuser->getMobile());
 				$FEuser->setEmail($FKUuser->getEmail());
 				$FEuser->setCity($FKUuser->getZipcode().' '.$FKUuser->getCity());
-				$FEuser->setTxFkupeopleFkudbsync(date('Y-m-d H:i:s'));
+				$FEuser->setTxFkupeopleFkudbsync(date('U'));
 				$this->userRepository->update($FEuser);
 				return true;
 			} else {

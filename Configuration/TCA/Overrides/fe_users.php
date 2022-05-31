@@ -19,7 +19,7 @@ $temporaryColumns = array (
 			'config' => array (
 				'type' => 'input',
 				'renderType' => 'inputDateTime',
-				'eval' => 'datetime',
+				'eval' => 'datetime,int',
 				'readOnly' => true
 			)
         ),

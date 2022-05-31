@@ -171,7 +171,7 @@ CREATE TABLE tx_fkupeople_domain_model_notificationrule (
 #
 CREATE TABLE fe_users (
 	tx_fkupeople_fkudbid int(11) unsigned DEFAULT '0' NOT NULL,
-	tx_fkupeople_fkudbsync datetime DEFAULT '0000-00-00 00:00:00',
+	tx_fkupeople_fkudbsync int(11) unsigned DEFAULT '0' NOT NULL,
 	tx_fkupeople_planningcal varchar(255) DEFAULT '' NOT NULL,
 	tx_fkupeople_planning_alarm int(1) unsigned DEFAULT '0' NOT NULL,
 	tx_fkupeople_notification_hour int(11) unsigned DEFAULT '0' NOT NULL,

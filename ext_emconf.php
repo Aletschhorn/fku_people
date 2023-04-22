@@ -21,7 +21,7 @@ $EM_CONF[$_EXTKEY] = [
 	'uploadfolder' => '0',
 	'createDirs' => '',
 	'clearCacheOnLoad' => 0,
-	'version' => '6.1.0',
+	'version' => '7.0.0',
 	'constraints' => [
 		'depends' => [
 			'typo3' => '8.7.0-10.4.99',
@@ -197,6 +197,12 @@ $EM_CONF[$_EXTKEY] = [
  * Added use of Notification model in PersonController
  * Replaced eID concept by middleware (PSR-15) concept, also adapting partial template NotificationExisting.html
  * Removed TypeScript mod.fe_users.txt and hence changed ext_localconf.php
+ *
+ * Version 7.0.0
+ * -------------
+ * Renamed setup.txt and constants.txt to setup.typoscript and constants.typoscript
+ * Get rid of switcheable action controller in flexform, defined new plugin names
+ * Defined FE user group "Adressen" instead of "Vorstand" to change the list type in search form
  *
  *
  */

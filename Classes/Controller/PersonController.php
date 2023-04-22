@@ -247,6 +247,10 @@ class PersonController extends ActionController {
 	 */
 	public function birthdayAction() {
 		
+		if ($this->settings['variant'] == 1) {
+			$this->redirect('seniorBirthday');
+		}
+		
 		$numberOfDays = $this->settings['numberOfBirthdates'];
 		
 		if ($this->request->hasArgument('timestamp')) { 
